@@ -1,8 +1,8 @@
-
+import Styles from './style.module.scss';
 
 const Todo = () => {
   return (
-    <div>Todo</div>
+    <div className={Styles.mHead}>Todo</div>
   )
 }
 

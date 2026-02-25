@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 /* fetchTasks via Redux AsyncThunk */
 export const fetchTasks = createAsyncThunk("tasks/fetchTasks", async () => {
-    const res = await fetch("http://localhost:4000/tasks");
+    const res = await fetch("http://localhost:4000/todo");
     const data = await res.json();
     return data;
 });

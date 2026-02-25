@@ -1,0 +1,417 @@
+@use "./variables" as *;
+
+@mixin flex{
+  display: flex;
+}
+
+@mixin flex-row {
+  flex-direction: row;
+}
+
+@mixin flex-row-vp {
+  flex-direction: column !important;
+}
+
+@mixin flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+@mixin flex-col {
+  flex-direction: column;
+}
+
+@mixin flex-col-vp{
+  flex-direction: row !important;
+}
+
+@mixin flex-col-reverse {
+  flex-direction: column-reverse;
+}
+
+@mixin flex-wrap {
+  flex-wrap: wrap !important;
+}
+
+@mixin flex-wrap-reverse {
+  flex-wrap: wrap-reverse !important;
+}
+
+@mixin flex-nowrap {
+  flex-wrap: nowrap !important;
+}
+
+@mixin grid{
+  display: grid;
+}
+
+@mixin grid-cols-1{
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@mixin grid-cols-2{
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@mixin grid-cols-3{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@mixin grid-cols-4{
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@mixin grid-cols-5{
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+@mixin grid-cols-6{
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+@mixin grid-cols-7{
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+@mixin inline-flex {
+  display: inline-flex;
+}
+
+@mixin w-full {
+	width: 100%;
+}
+
+@mixin gap-x-null{
+  column-gap: 0rem !important;
+}
+
+@mixin gap-x-1 {
+  column-gap: 0.25rem;
+}
+
+@mixin gap-x-1-vp {
+  column-gap: 0.25rem !important;
+}
+
+@mixin gap-x-2 {
+  column-gap: 0.5rem;
+}
+
+@mixin gap-x-2-vp {
+  column-gap: 0.5rem !important;
+}
+
+@mixin gap-x-3 {
+  column-gap: 0.75rem;
+}
+
+@mixin gap-x-3-vp{
+  column-gap: 0.75rem !important;
+}
+
+@mixin gap-x-4{
+  column-gap: 1rem;
+}
+
+@mixin gap-x-4-vp{
+  column-gap: 1rem !important;
+}
+
+@mixin gap-x-5{
+  column-gap: 1.25rem;
+}
+
+@mixin gap-x-6{
+  column-gap: 1.5rem;
+}
+
+@mixin gap-x-6-vp{
+  column-gap: 1.5rem !important;
+}
+
+@mixin gap-x-7{
+  column-gap: 1.75rem;
+}
+
+@mixin gap-x-8{
+  column-gap: 2rem;
+}
+
+@mixin gap-x-8-vp{
+  column-gap: 2rem !important;
+}
+
+@mixin gap-x-9{
+  column-gap: 2.25rem;
+}
+
+@mixin gap-x-10{
+  column-gap: 2.5rem;
+};
+
+@mixin gap-x-10-vp{
+  column-gap: 2.5rem;
+}
+
+@mixin gap-x-11{
+  column-gap: 2.75rem;
+};
+
+@mixin gap-x-12{
+  column-gap: 3rem;
+};
+
+@mixin gap-x-13{
+  column-gap: 3.25rem;
+};
+
+@mixin gap-x-14{
+  column-gap: 3.5rem;
+};
+
+@mixin gap-x-15{
+  column-gap: 3.75rem;
+};
+
+@mixin gap-x-16{
+  column-gap: 4rem;
+};
+
+@mixin gap-x-17{
+  column-gap: 4.25rem;
+};
+
+@mixin gap-x-18{
+  column-gap: 4.5rem;
+};
+
+@mixin gap-x-19{
+  column-gap: 4.75rem;
+};
+
+@mixin gap-x-20{
+  column-gap: 5rem;
+};
+
+@mixin gap-x-21{
+  column-gap: 5.25rem;
+};
+
+@mixin gap-x-22{
+  column-gap: 5.5rem;
+};
+
+@mixin gap-x-23{
+  column-gap: 5.75rem;
+};
+
+@mixin gap-x-24{
+  column-gap: 6rem;
+};
+
+@mixin gap-x-25{
+  column-gap: 6.25rem;
+};
+
+@mixin gap-x-26{
+  column-gap: 6.5rem;
+};
+
+@mixin gap-x-27{
+  column-gap: 6.75rem;
+};
+
+@mixin gap-x-28{
+  column-gap: 7rem;
+};
+
+@mixin gap-y-1 {
+  row-gap: 0.25rem;
+}
+
+@mixin gap-y-2{
+  row-gap: 0.5rem;
+}
+
+@mixin gap-y-3{
+  row-gap: 0.75rem;
+}
+
+@mixin gap-y-4{
+  row-gap: 1rem;
+}
+
+@mixin gap-y-5{
+  row-gap: 1.25rem;
+}
+
+@mixin gap-y-6{
+  row-gap: 1.5rem;
+}
+
+@mixin gap-y-6-vp{
+  row-gap: 1.5rem !important;
+}
+
+@mixin gap-y-7{
+  row-gap: 1.75rem;
+}
+
+@mixin gap-y-8{
+  row-gap: 2rem;
+}
+
+@mixin gap-y-9{
+  row-gap: 2.25rem;
+}
+
+@mixin gap-y-10{
+  row-gap: 2.5rem;
+}
+
+@mixin justify-normal {
+  justify-content: normal;
+}
+
+@mixin justify-normal-vp {
+  justify-content: normal !important;
+}
+
+@mixin justify-start {
+  justify-content: flex-start;
+}
+
+@mixin justify-end {
+  justify-content: flex-end;
+}
+
+@mixin justify-center {
+  justify-content: center;
+}
+
+@mixin justify-between {
+  justify-content: space-between;
+}
+
+@mixin justify-around {
+  justify-content: space-around;
+}
+
+@mixin justify-evenly {
+  justify-content: space-evenly;
+}
+
+@mixin justify-stretch {
+  justify-content: stretch;
+}
+
+@mixin justify-items-start {
+  justify-items: start;
+}
+
+@mixin justify-items-end {
+  justify-items: end;
+}
+
+@mixin justify-items-center {
+  justify-items: center;
+}
+
+@mixin justify-items-stretch {
+  justify-items: stretch;
+}
+
+@mixin text-justify {
+  text-align: justify;
+}
+
+@mixin grid {
+  display: grid;
+}
+
+@mixin grid-rows-none {
+  grid-template-rows: none;
+}
+
+@mixin grid-rows-1 {
+  grid-template-rows: repeat(1, minmax(0, 1fr));
+}
+
+@mixin grid-rows-4{
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+}
+
+@mixin grid-rows-5{
+  grid-template-rows: repeat(5, minmax(0, 1fr));
+}
+
+@mixin grid-rows-9{
+  grid-template-rows: repeat(9, minmax(0, 1fr));
+}
+
+@mixin grid-flow-row-dense {
+  grid-auto-flow: row dense;
+}
+
+@mixin grid-flow-col-dense {
+  grid-auto-flow: column dense;
+}
+
+@mixin grid-flow-row {
+  grid-auto-flow: row;
+}
+
+@mixin grid-flow-col {
+  grid-auto-flow: column;
+}
+
+@mixin grid-flow-dense {
+  grid-auto-flow: dense;
+}
+
+@mixin grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@mixin grid-cols-2{
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@mixin grid-cols-none {
+  grid-template-columns: none;
+}
+
+@mixin mobile-screen {
+  @media screen and (max-width: $mobile-width) {
+    @content;
+  }
+}
+
+@mixin small-screen {
+  @media screen and (max-width: $sm-screen-width) {
+    @content;
+  }
+}
+
+@mixin medium-screen {
+  @media screen and (max-width: $md-screen-width) {
+    @content;
+  }
+}
+
+@mixin tablet-screen{
+  @media screen and (max-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin large-screen {
+  @media screen and (max-width: $lg-screen-width) {
+    @content;
+  }
+}
+
+@mixin extra-large-screen {
+  @media screen and (max-width: $xl-screen-width) {
+    @content;
+  }
+}

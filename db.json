@@ -1,6 +1,6 @@
 {
-"tasks": {
-  "todo": [
+"todo": {
+  "tasks": [
     { "id": "1", "title": "Design Login Page UI", "description": "Create a responsive login page design including email/password fields, validation messages, and a forgot password link.", "priority": "High" },
     { "id": "2", "title": "Implement User Authentication API", "description": "Develop REST API endpoints for user login, registration, and JWT token generation.", "priority": "High" },
     { "id": "3", "title": "Set Up Database Schema", "description": "Design and create database tables for users, roles, and permissions with proper indexing.", "priority": "High" },
