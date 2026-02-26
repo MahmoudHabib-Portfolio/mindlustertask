@@ -1,3 +1,39 @@
 @use "../../Styles/variables" as *;
 @use "../../Styles/mixins" as *;
 
+.mNav{
+    @include flex;
+    @include flex-row;
+    @include justify-between;
+    @include w-full;
+    padding: 1em 2em;
+    @include small-screen{
+        @include flex-row-vp;
+        @include gap-y-8;   
+    }
+}
+
+.mHead{
+    color: $secondary-color;
+    font-size: 1em;
+    font-family: $font-Inter-Bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.taskBar{
+    color: $subC;
+    font-size: 1em;
+    font-family: $font-Inter-Bold;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+
+.searchBox{
+    @include flex;
+    @include flex-row;
+    @include gap-x-null;
+    padding: 0.6em 1em;
+    border-radius:15px;
+    background: $searchBox;
+}

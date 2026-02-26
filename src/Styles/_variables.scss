@@ -1,8 +1,9 @@
 $navbar-height: 96px;
 // Colors
 $primary-color: #fff;
-$secondary-color: rgba(51, 51, 51, 0.7);
-$bodyC: #f5f5f5;
+$secondary-color: rgb(1, 1, 1);
+$subC: rgba(1, 1, 1, 0.5);
+$bodyBckg: #f5f5f5;
 $taskdesc: #757d86;
 $highBckg: #f0d2d2;
 $highC: #d05955;
@@ -17,6 +18,7 @@ $doneC: #419673;
 $KanIconC: #3c64d7;
 $inputBckg: rgba(71, 98, 255, 0.08);
 $inputC: #979797;
+$searchBox: #ebf0f0;
 // Responsive
 $mobile-width: 768px;
 $tablet-width: 1024px;
