@@ -23,17 +23,17 @@ function TaskBar(){
 /* search_Field */
 const SearchField = styled(TextField)({
   '& .MuiInput-underline:after': {
-    borderBottomColor: '#7C7C8D',
+    borderBottomColor: '#e6e6eb',
   },
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
       borderRadius: "8px"
     },
     '&:hover fieldset': {
-      borderColor: '#ebf0f0',
+      borderColor: '#e6e6eb',
     },
     '&.Mui-focused fieldset': {
-      borderColor: '#7C7C8D',
+      borderColor: '#e6e6eb',
       borderWidth: '0rem'
     }
   },
@@ -65,7 +65,7 @@ const NavBar = () => {
       {/* Search Bar */}
       <div className={Styles.searchBox}>
         {/* search_Icon */}
-          <div style={{color:"#718EBF", fontSize:"18px", lineHeight:"40px"}}>
+          <div style={{color:"#626a75", fontSize:"18px", lineHeight:"40px"}}>
             <FiSearch />
           </div>
           {/* Search_Field */}
@@ -78,11 +78,11 @@ const NavBar = () => {
                 "& .MuiOutlinedInput-notchedOutline": {
                     borderWidth: "0rem",
                     borderStyle: "solid",
-                    borderColor: '#7C7C8D',
+                    borderColor: '#e6e6eb',
                     borderRadius: "8px"
                 },
                 '&.Mui-focused fieldset': {
-                    borderColor: "#7C7C8D"
+                    borderColor: "#e6e6eb"
                 },
                 }
             }}
@@ -91,8 +91,8 @@ const NavBar = () => {
                 color: '#7C7C8D',
                 fontSize: '14px',
                 fontWeight: '600',
-                backgroundColor:'#ebf0f0',
-                padding:'8px 8px',
+                backgroundColor:'#e6e6eb',
+                padding:'8px 6px',
                 borderRadius: "8px",
                 '&::placeholder': {
                         color: '#7C7C8D',
@@ -100,7 +100,7 @@ const NavBar = () => {
                       }
                 },
                 }}
-                placeholder={"Looking for a task...?"}
+                placeholder={"Search Tasks..."}
                 onChange={(e) => setSearch(e.target.value)}
                 type="text"
                 />
