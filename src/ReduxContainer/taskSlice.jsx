@@ -2,9 +2,43 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 /* fetchTasks via Redux AsyncThunk */
 export const fetchTasks = createAsyncThunk("tasks/fetchTasks", async () => {
-    const res = await fetch("http://localhost:4000/todo");
+    const res = await fetch("http://localhost:4000/tasks");
     const data = await res.json();
     return data;
+});
+
+/* add_Tasks */
+export const addTask = createAsyncThunk("taksk/addTask", async (task) => {
+    const res = await fetch("http://localhost:4000/tasks", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(task),
+    });
+
+    return res.json();
+});
+
+/* update_Tasks */
+export const updateTasks = createAsyncThunk("tasks/editTask", async(task) => {
+    const res = await fetch(`http://localhost:4000/tasks/${task.id}`, {
+        method: "PUT",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(task),
+    });
+
+    return res.json();
+});
+
+/* remove_Tasks */
+export const remvTask = createAsyncThunk("tasks/removeTasks", async(id) => {
+    await fetch(`http://localhost:4000/tasks/${id}`, {
+        method: 'DELETE',
+    });
+    return id;
 });
 
 /* create redux container slice */
@@ -21,11 +55,21 @@ const taskReducer = createSlice({
         });
         builder.addCase(fetchTasks.fulfilled, (state, action) => {
             state.loading = false;
-            state.users = action.payload
+            state.tasks = action.payload
         });
         builder.addCase(fetchTasks.rejected, (state, action) => {
             state.loading = false;
             state.error = action.error.message
+        });
+        builder.addCase(addTask.fulfilled, (state, action) => {
+            state.tasks.unshift(action.payload);
+        });
+        builder.addCase(updateTasks.fulfilled, (state, action) => {
+            const index = state.tasks.findIndex(x => x.id === action.payload.id)
+            state.tasks[index] = action.payload
+        });
+        builder.addCase(remvTask.fulfilled, (state, action) => {
+            state.tasks = state.tasks.filter((task) => task.id !== action.payload)
         });
     }
 });

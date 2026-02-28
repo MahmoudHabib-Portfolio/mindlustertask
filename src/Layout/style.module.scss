@@ -1,0 +1,27 @@
+@use "../Styles/variables" as *;
+@use "../Styles/mixins" as *;
+
+.taskCont{
+    @include flex;
+    @include flex-row;
+    @include justify-center;
+    @include gap-x-3;
+    @include w-full;
+    padding: 2em;
+    @include large-screen{
+        padding: 1em;
+    }
+}
+
+.taskCont > div:nth-child(1){
+    width: 25%;
+}
+.taskCont > div:nth-child(2){
+    width: 25%;
+}
+.taskCont > div:nth-child(3){
+    width: 25%;
+}
+.taskCont > div:nth-child(4){
+    width: 25%;
+}
