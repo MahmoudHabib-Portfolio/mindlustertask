@@ -2,281 +2,71 @@
   "tasks": [
     {
       "id": "1",
-      "title": "Design Login Page UI",
-      "description": "Create a responsive login page design including email/password fields, validation messages, and a forgot password link.",
+      "title": "API integration",
+      "description": "Connect frontend to REST API endpoints.",
       "priority": "High",
       "column": "todo"
     },
     {
       "id": "2",
-      "title": "Implement User Authentication API",
-      "description": "Develop REST API endpoints for user login, registration, and JWT token generation.",
-      "priority": "High",
+      "title": "Unit tests",
+      "description": "write tests for utility functions and hooks.",
+      "priority": "Medium",
       "column": "todo"
     },
     {
       "id": "3",
-      "title": "Set Up Database Schema",
-      "description": "Design and create database tables for users, roles, and permissions with proper indexing.",
-      "priority": "High",
+      "title": "Performance audit",
+      "description": "Lighthouse scores and bundle analysis",
+      "priority": "Low",
       "column": "todo"
     },
     {
       "id": "4",
-      "title": "Create User Dashboard Layout",
-      "description": "Build the main dashboard layout with sidebar navigation and summary widgets.",
+      "title": "Notification system",
+      "description": "Toast notifications and in-app alerts",
       "priority": "Medium",
       "column": "todo"
     },
     {
       "id": "5",
-      "title": "Integrate Email Notification Service",
-      "description": "Configure SMTP service to send account verification and password reset emails.",
+      "title": "User settings page",
+      "description": "Profile editing, preferences, and account management.",
       "priority": "Medium",
       "column": "todo"
     },
     {
-      "id": "21",
-      "title": "Add Two-Factor Authentication",
-      "description": "Integrate OTP-based 2FA for enhanced account security.",
-      "priority": "High",
-      "column": "todo"
-    },
-    {
-      "id": "23",
-      "title": "Perform Security Audit",
-      "description": "Review codebase for vulnerabilities including SQL injection and XSS.",
-      "priority": "High",
-      "column": "todo"
-    },
-    {
-      "id": "34",
-      "title": "Integrate Payment Gateway",
-      "description": "Connect Stripe API for subscription-based billing.",
-      "priority": "High",
-      "column": "todo"
-    },
-    {
-      "id": "42",
-      "title": "Integrate Cloud Storage",
-      "description": "Store uploaded files securely in AWS S3 bucket.",
-      "priority": "High",
-      "column": "todo"
-    },
-    { 
-      "id": "46", 
-      "title": "Set Up Redis Caching", 
-      "description": "Cache frequently accessed data to reduce database load.", 
-      "priority": "High",
-      "column": "todo"
-     },
-    {
       "id": "6",
-      "title": "Add Role-Based Access Control",
-      "description": "Implement middleware to restrict routes based on user roles and permissions.",
-      "priority": "High",
-      "column": "inProgress"
-    },
-    {
-      "id": "7",
-      "title": "Develop Task Creation Module",
-      "description": "Allow users to create, edit, delete, and view tasks with validation.",
-      "priority": "High",
-      "column": "inProgress"
-    },
-    {
-      "id": "10",
-      "title": "Configure CI/CD Pipeline",
-      "description": "Set up automated build and deployment pipeline using GitHub Actions.",
+      "title": "Authentication flow",
+      "description": "Implement login, signup, and password reset screens",
       "priority": "High",
       "column": "inProgress"
     },
     {
       "id": "11",
-      "title": "Optimize Database Queries",
-      "description": "Analyze slow queries and add indexes to improve performance.",
-      "priority": "Medium",
-      "column": "inProgress"
-    },
-    {
-      "id": "12",
-      "title": "Implement Password Encryption",
-      "description": "Use bcrypt to securely hash and store user passwords.",
-      "priority": "High",
-      "column": "inProgress"
-    },
-    {
-      "id": "19",
-      "title": "Set Up Environment Configuration",
-      "description": "Configure development, staging, and production environment variables.",
-      "priority": "High",
-      "column": "inProgress"
-    },
-    {
-      "id": "24",
-      "title": "Implement Real-Time Notifications",
-      "description": "Use WebSockets to notify users about task updates instantly.",
-      "priority": "Medium",
-      "column": "inProgress"
-    },
-    {
-      "id": "30",
-      "title": "Set Up Error Monitoring",
-      "description": "Integrate Sentry to track runtime errors in production.",
-      "priority": "Medium",
-      "column": "inProgress"
-    },
-    {
-      "id": "35",
-      "title": "Implement Rate Limiting",
-      "description": "Prevent API abuse by limiting requests per user.",
-      "priority": "High",
-      "column": "inProgress"
-    },
-    {
-      "id": "37",
-      "title": "Conduct Load Testing",
-      "description": "Simulate high traffic to evaluate system performance under stress.",
+      "title": "File upload component",
+      "description": "Drag and drop file upload with preview.",
       "priority": "Medium",
       "column": "inProgress"
     },
     {
       "id": "8",
-      "title": "Implement Search and Filter Feature",
-      "description": "Enable filtering tasks by status, priority, and due date.",
+      "title": "Dark mode support",
+      "description": "Add theme toggle and CSS variable switching.",
       "priority": "Medium",
       "column": "inReview"
     },
     {
       "id": "9",
-      "title": "Write Unit Tests for Auth Module",
-      "description": "Cover authentication logic with unit tests to ensure reliability.",
-      "priority": "Medium",
-      "column": "inReview"
-    },
-    {
-      "id": "13",
-      "title": "Add Pagination to Task List",
-      "description": "Limit results per page and provide navigation controls for large datasets.",
-      "priority": "Medium",
-      "column": "inReview"
-    },
-    {
-      "id": "14",
-      "title": "Create Admin Panel",
-      "description": "Develop an admin interface for managing users and viewing system logs.",
-      "priority": "Medium",
-      "column": "inReview"
-    },
-    {
-      "id": "15",
-      "title": "Implement File Upload Feature",
-      "description": "Allow users to upload attachments with size and type validation.",
-      "priority": "Medium",
-      "column": "inReview"
-    },
-    {
-      "id": "18",
-      "title": "Fix Cross-Browser Compatibility Issues",
-      "description": "Resolve layout and functionality issues in Chrome, Firefox, and Safari.",
-      "priority": "Medium",
-      "column": "inReview"
-    },
-    {
-      "id": "28",
-      "title": "Improve Application Performance",
-      "description": "Minimize bundle size and optimize frontend rendering.",
-      "priority": "Medium",
-      "column": "inReview"
-    },
-    {
-      "id": "40",
-      "title": "Create Reporting Dashboard",
-      "description": "Display analytics such as completed tasks and user activity metrics.",
-      "priority": "Medium",
-      "column": "inReview"
-    },
-    {
-      "id": "41",
-      "title": "Add Commenting System",
-      "description": "Enable users to comment on tasks and tag team members.",
-      "priority": "Medium",
-      "column": "inReview"
-    },
-    {
-      "id": "43",
-      "title": "Implement API Versioning",
-      "description": "Maintain backward compatibility by introducing versioned endpoints.",
+      "title": "Dashboard layout",
+      "description": "Build responsive sidebar and main content area.",
       "priority": "Medium",
       "column": "inReview"
     },
     {
       "id": "16",
-      "title": "Add Activity Logging",
-      "description": "Track user actions such as login, task updates, and deletions.",
-      "priority": "Low",
-      "column": "completed"
-    },
-    {
-      "id": "17",
-      "title": "Design Mobile Responsive Layout",
-      "description": "Ensure application UI adapts properly across mobile and tablet devices.",
-      "priority": "Medium",
-      "column": "completed"
-    },
-    {
-      "id": "20",
-      "title": "Implement Dark Mode",
-      "description": "Provide users with an option to switch between light and dark themes.",
-      "priority": "Low",
-      "column": "completed"
-    },
-    {
-      "id": "22",
-      "title": "Create API Documentation",
-      "description": "Document all REST endpoints using Swagger or OpenAPI specification.",
-      "priority": "Medium",
-      "column": "completed"
-    },
-    {
-      "id": "25",
-      "title": "Set Up Backup Strategy",
-      "description": "Automate daily database backups and verify restore procedures.",
-      "priority": "High",
-      "column": "completed"
-    },
-    {
-      "id": "26",
-      "title": "Create User Profile Page",
-      "description": "Allow users to update personal details and change passwords.",
-      "priority": "Medium",
-      "column": "completed"
-    },
-    {
-      "id": "27",
-      "title": "Add Task Priority Levels",
-      "description": "Implement low, medium, and high priority indicators with color coding.",
-      "priority": "Low",
-      "column": "completed"
-    },
-    {
-      "id": "29",
-      "title": "Implement Audit Trail",
-      "description": "Maintain historical records of task changes for accountability.",
-      "priority": "Low",
-      "column": "completed"
-    },
-    {
-      "id": "31",
-      "title": "Create Onboarding Tutorial",
-      "description": "Develop a guided walkthrough for first-time users.",
-      "priority": "Low",
-      "column": "completed"
-    },
-    {
-      "id": "50",
-      "title": "Perform Code Review",
-      "description": "Review pull requests to ensure coding standards and best practices.",
+      "title": "Design system tokens",
+      "description": "Set up color palette, typography, and spacing scales.",
       "priority": "High",
       "column": "completed"
     }

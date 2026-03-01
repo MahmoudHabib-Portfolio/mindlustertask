@@ -8,7 +8,7 @@ export const fetchTasks = createAsyncThunk("tasks/fetchTasks", async () => {
 });
 
 /* add_Tasks */
-export const addTask = createAsyncThunk("taksk/addTask", async (task) => {
+export const addTask = createAsyncThunk("tasks/addTask", async (task) => {
     const res = await fetch("http://localhost:4000/tasks", {
         method: "POST",
         headers: {
@@ -21,13 +21,18 @@ export const addTask = createAsyncThunk("taksk/addTask", async (task) => {
 });
 
 /* update_Tasks */
-export const updateTasks = createAsyncThunk("tasks/editTask", async(task) => {
-    const res = await fetch(`http://localhost:4000/tasks/${task.id}`, {
+export const updateTasks = createAsyncThunk("tasks/editTask", async({ id, title, description, priority, column }) => {
+    const res = await fetch(`http://localhost:4000/tasks/${id}`, {
         method: "PUT",
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(task),
+        body: JSON.stringify({
+            title,
+            description,
+            priority, 
+            column
+        }),
     });
 
     return res.json();
@@ -62,7 +67,7 @@ const taskReducer = createSlice({
             state.error = action.error.message
         });
         builder.addCase(addTask.fulfilled, (state, action) => {
-            state.tasks.unshift(action.payload);
+            state.tasks.push(action.payload);
         });
         builder.addCase(updateTasks.fulfilled, (state, action) => {
             const index = state.tasks.findIndex(x => x.id === action.payload.id)

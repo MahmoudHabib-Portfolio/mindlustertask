@@ -1,3 +1,107 @@
 @use "../../Styles/variables" as *;
 @use "../../Styles/mixins" as *;
 
+.todoCont{
+    @include flex;
+    @include flex-col;
+    @include gap-y-3;
+    @include w-full;
+    padding: 0.8em;
+    border-radius: 12px;
+    background: $taskBckg;
+    height: 100%;
+}
+
+/* Task Head Row */
+.todoCont > div:nth-child(1){
+    @include flex;
+    @include flex-row;
+    @include gap-x-4;
+}
+
+/* Task Body Column */
+.todoCont > div:nth-child(2){
+    @include flex;
+    @include flex-col;
+    @include gap-y-4;
+}
+
+.taskCount{
+    margin-top: 3px;
+    font-size: 0.9em;
+    font-family: $font-Inter;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background: $searchBox;
+    text-align: center;
+    line-height: 25px;
+}
+
+.todo{
+    font-size: 1.2em;
+    font-family: $font-Inter-Bold;
+    text-transform: uppercase;
+}
+
+.taskCard{
+    @include flex;
+    @include flex-row;
+    @include justify-between;
+    @include w-full;
+    padding: 1em;
+    border-radius: 12px;
+    background: $primary-color;
+}
+
+.taskCard > div:nth-child(1){
+    @include flex;
+    @include flex-col;
+    @include gap-y-6;
+    @include w-full;
+}
+
+.taskTitle{
+    color: $secondary-color;
+    font-family: $font-Inter;
+    font-size: 0.9em;
+}
+
+.taskDesc{
+    color: $secondary-color;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9em;
+}
+
+.actionBtns{
+    @include flex;
+    @include flex-col;
+}
+
+.addTask{
+    @include flex;
+    @include flex-col;
+    @include gap-y-4;
+    @include w-full;
+}
+
+.taskHead{
+    color: #000;
+    font-size: 14px;
+    font-family: $font-Inter-Bold;
+}
+
+.taskBody{
+    @include flex;
+    @include flex-col;
+    @include gap-y-3;
+    @include w-full;
+}
+
+.taskFooter{
+    @include flex;
+    @include flex-row;
+    @include justify-between;
+    @include w-full;
+}
+

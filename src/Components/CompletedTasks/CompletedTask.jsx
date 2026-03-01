@@ -96,7 +96,7 @@ function Low(){
                 label="low" />
 }
 
-const TodoTasks = ({task}) => {
+const CompletedTask = ({task}) => {
 
 /* task inputs state */
 const [tskTitle, setTskTitle] = useState(task.title);
@@ -328,4 +328,4 @@ const dispatch = useDispatch();
   )
 }
 
-export default TodoTasks;
+export default CompletedTask;

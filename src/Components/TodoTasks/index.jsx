@@ -1,6 +1,6 @@
 import Styles from './style.module.scss';
 import Chip from '@mui/material/Chip';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { GoDotFill } from "react-icons/go";
 import { Button } from "@mui/material";
 import { MdAddTask } from "react-icons/md";
@@ -11,6 +11,9 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import { styled } from "@mui/material/styles";
 import TodoTasks from './TodoTasks';
+import { addTask } from '../../ReduxContainer/taskSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import {fetchTasks} from "../../ReduxContainer/taskSlice";
 
 /* taskTitle_Field */
 const TskTitle = styled(TextField)({
@@ -50,12 +53,6 @@ const TskInfo = styled(TextField)({
   },
 });
 
-/* Submit Task */
-const submitTask = (e) => {
-  e.preventDefault();
-
-}
-
 /* Add Task Modal Style */
 const style = {
   position: 'absolute',
@@ -70,14 +67,16 @@ const style = {
   p: 1,
 };
 
-const Todo = ({Tasks}) => {
+const Todo = () => {
 
   
   /* Add task title & info states */
-  const [taskTitle, setTaskTitle] = useState("");
-  const [taskInfo, setTaskInfo] = useState("");
+  const [title, setTaskTitle] = useState("");
+  const [description, setTaskInfo] = useState("");
   /* Task_priority_state */
-  const [taskPriot, setTaskPriot] = useState("");
+  const [priority, setTaskPriot] = useState("");
+  /* Task_Column */
+  const [column, setColumn] = useState("");
 
   /* open modal toggle */
   const [open, setOpen] = useState(false);
@@ -86,9 +85,35 @@ const Todo = ({Tasks}) => {
   const openModal = () => setOpen(true);
   const closeModal = () => setOpen(false);
 
+  const dispatch = useDispatch();
+
+  /* fetch_Tasks */
+  useEffect(() => {
+    dispatch(fetchTasks());
+  }, [dispatch]);
+
+  /* tasks_State */
+  const {tasks, loading, error} = useSelector((state) => state.tasks);
+
   /* getting tasks count */
-  const todoTasks = Tasks.filter((t) => t.column === "todo");
+  const todoTasks = tasks.filter((t) => t.column === "todo");
   const taskLength = todoTasks.length;
+
+  /* Submit Task */
+  const submitTask = (e) => {
+    e.preventDefault();
+
+    dispatch(addTask({title, description, priority, column}));
+
+    /* Reset_task_Fields */
+    setTaskTitle("");
+    setTaskInfo("");
+    setTaskPriot("");
+    setColumn("");
+    /* close_task_modal */
+    closeModal();
+  }
+
   return (
     <div className={Styles.todoCont}>
       {/* Task Head */}
@@ -109,8 +134,8 @@ const Todo = ({Tasks}) => {
         </div>
       </div>
       {/* Task Body */}
-      {todoTasks?.map((task, index) => (
-        <TodoTasks key={index} task={task} />
+      {todoTasks?.map((task) => (
+        <TodoTasks key={task.id} task={task} />
       ))}
 
       {/* Add Task Input */}
@@ -158,7 +183,7 @@ const Todo = ({Tasks}) => {
                     
                   <TskTitle
                     fullWidth
-                    value={taskTitle}
+                    value={title}
                     sx={{
                         "& .MuiOutlinedInput-root":{
                         "& .MuiOutlinedInput-notchedOutline": {
@@ -190,6 +215,7 @@ const Todo = ({Tasks}) => {
                         placeholder={"Task Title"}
                         onChange={(e) => setTaskTitle(e.target.value)}
                         type="text"
+                        required
                         />
           
                   </div>
@@ -197,7 +223,7 @@ const Todo = ({Tasks}) => {
                   <div style={{width:"100%"}}>
                     <TskInfo
                     fullWidth
-                    value={taskInfo}
+                    value={description}
                     sx={{
                         "& .MuiOutlinedInput-root":{
                         "& .MuiOutlinedInput-notchedOutline": {
@@ -229,14 +255,75 @@ const Todo = ({Tasks}) => {
                         placeholder={"Task Info"}
                         onChange={(e) => setTaskInfo(e.target.value)}
                         type="text"
+                        required
                         />
                   </div>
+                  {/* column_select */}
+                  <div style={{width:"100%"}}>
+                    <span className={Styles.taskTitle}><b>Task Status</b></span>
+                    <br />
+                      <Select
+                      value={column}
+                      onChange={(e) => setColumn(e.target.value)}
+                      displayEmpty
+                      inputProps={{ 'aria-label': 'Without label' }}
+                      MenuProps={{
+                        PaperProps:{
+                          sx:{
+                            backgroundColor: '#fff',
+                          }
+                        }
+                      }}
+                      sx={{
+                          fontSize: "15px",
+                          padding: 0,
+                          width:"100%",
+                          color: "#000",
+                          borderRadius: "12px",
+                          fontWeight:"600",
+                          background: "none",
+                          letterSpacing: "1px",
+                          '& .MuiSelect-select': {
+                              padding: '6px 12px',
+                              background: "#fff"
+                          },
+                          '& .MuiSelect-icon': {
+                              color: '#000',
+                          },
+                          '& .MuiOutlinedInput-notchedOutline': {
+                            border: '0px !important'
+                          },
+                          '&:hover .MuiOutlinedInput-notchedOutline': {
+                            border: '0px !important'
+                          },
+                          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                            border: '0px !important'
+                          }
+                      }}
+                      variant="outlined"
+                      required
+                      >
+                      <MenuItem value={"todo"}>
+                        <span style={{color:"#000"}}>todo</span>
+                      </MenuItem>
+                      <MenuItem value="inProgress">
+                      <span style={{color:"#000"}}>inProgress</span>
+                      </MenuItem>
+                      <MenuItem value="inReview">
+                        <span style={{color:"#000"}}>inReview</span>
+                      </MenuItem>
+                      <MenuItem value="completed">
+                        <span style={{color:"#000"}}>completed</span>
+                      </MenuItem>
+                      </Select>
+                  </div>
+                  <hr />
                   {/* task_Priority_select */}
                   <div style={{width:"100%"}}>
                     <span className={Styles.taskTitle}><b>Task Priority</b></span>
                     <br />
                       <Select
-                      value={taskPriot}
+                      value={priority}
                       onChange={(e) => setTaskPriot(e.target.value)}
                       displayEmpty
                       inputProps={{ 'aria-label': 'Without label' }}
@@ -274,8 +361,9 @@ const Todo = ({Tasks}) => {
                           }
                       }}
                       variant="outlined"
+                      required
                       >
-                      <MenuItem value={""}>
+                      <MenuItem value={"Low"}>
                         <span style={{color:"#707780"}}>Low</span>
                       </MenuItem>
                       <MenuItem value="Medium">
@@ -302,7 +390,7 @@ const Todo = ({Tasks}) => {
                         background:"#419673",
                       }
                     }}
-                    onClick={submitTask}
+                    type="submit"
                     >
                       + Add Task
                     </Button>

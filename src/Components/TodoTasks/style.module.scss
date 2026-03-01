@@ -9,6 +9,7 @@
     padding: 0.8em;
     border-radius: 12px;
     background: $taskBckg;
+    height: 100%;
 }
 
 /* Task Head Row */
@@ -40,6 +41,7 @@
 .todo{
     font-size: 1.2em;
     font-family: $font-Inter-Bold;
+    text-transform: uppercase;
 }
 
 .taskCard{
@@ -55,7 +57,7 @@
 .taskCard > div:nth-child(1){
     @include flex;
     @include flex-col;
-    @include gap-y-3;
+    @include gap-y-6;
     @include w-full;
 }
 
@@ -96,3 +98,9 @@
     @include w-full;
 }
 
+.taskFooter{
+    @include flex;
+    @include flex-row;
+    @include justify-between;
+    @include w-full;
+}
