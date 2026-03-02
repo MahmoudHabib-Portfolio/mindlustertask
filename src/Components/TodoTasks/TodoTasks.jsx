@@ -12,6 +12,7 @@ import Chip from '@mui/material/Chip';
 import { useState } from "react";
 import { remvTask, updateTasks } from "../../ReduxContainer/taskSlice";
 import { useDispatch } from "react-redux";
+import { useDraggable } from "@dnd-kit/core";
 
 /* taskTitle_Field */
 const TaskTitleField = styled(TextField)({
@@ -139,9 +140,21 @@ const id = Open ? 'simple-popover' : undefined;
 
 const dispatch = useDispatch();
 
+const { attributes, listeners, setNodeRef, transform } = useDraggable({
+  id: task.id,
+});
+
+const style = {
+  transform: transform
+    ? `translate(${transform.x}px, ${transform.y}px)`
+    : undefined,
+    position: 'relative',
+    zIndex: 100
+};
+
   return (
-    <div>
-          <div className={Styles.taskCard}>
+    <div ref={setNodeRef} style={style} {...listeners} {...attributes}>
+          <div className={Styles.taskCard} style={{position: "relative"}}>
             <div>
               <div className={Styles.taskTitle}>
                 {shEdit ? (<div style={{width:"100%"}}>
@@ -254,12 +267,15 @@ const dispatch = useDispatch();
               </div>
             </div>
             {/* Task Action */}
-            <div>
+            <div style={{position:"relative", zIndex:"1000"}}>
               <IconButton
               aria-describedby={id}
               onClick={handleClick}
               size="small"
               disableRipple={true}
+              sx={{
+                zIndex: 1000,
+              }}
               >
               <HiDotsHorizontal className="text-dotbg text-2xl font-bold" />
               </IconButton>
@@ -279,6 +295,8 @@ const dispatch = useDispatch();
                 sx={{
                     '& .MuiPopover-paper': {
                       backgroundColor: '#E0E0E0',
+                      zIndex: 1100,
+                      position: 'absolute'
                     },
                   }}
                 >

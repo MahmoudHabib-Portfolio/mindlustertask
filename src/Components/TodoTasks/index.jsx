@@ -14,6 +14,7 @@ import TodoTasks from './TodoTasks';
 import { addTask } from '../../ReduxContainer/taskSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import {fetchTasks} from "../../ReduxContainer/taskSlice";
+import { useDroppable } from '@dnd-kit/core';
 
 /* taskTitle_Field */
 const TskTitle = styled(TextField)({
@@ -67,8 +68,8 @@ const style = {
   p: 1,
 };
 
-const Todo = () => {
 
+const Todo = () => {
   
   /* Add task title & info states */
   const [title, setTaskTitle] = useState("");
@@ -114,8 +115,13 @@ const Todo = () => {
     closeModal();
   }
 
+  // MUST match column name
+  const { setNodeRef } = useDroppable({
+  id: "todo",
+  });
+
   return (
-    <div className={Styles.todoCont}>
+    <div ref={setNodeRef} className={Styles.todoCont}>
       {/* Task Head */}
       <div>
         {/* Task Title */}

@@ -6,16 +6,44 @@ import {Todo} from '../Components';
 import {InProgress} from '../Components';
 import {InReview} from '../Components';
 import {Completed} from '../Components';
+import { useDispatch, useSelector } from "react-redux";
+import { DndContext } from "@dnd-kit/core";
+import { updateTasks } from "../ReduxContainer/taskSlice";
 
 const Layout = () => {
+
+  const dispatch = useDispatch();
+  const { tasks } = useSelector((state) => state.tasks);
+
+  const dragEnd = (event) => {
+    const { active, over } = event;
+
+    if (!over) return;
+
+    const taskId = active.id;
+    const newColumn = over.id;
+
+    const task = tasks.find((t) => t.id === taskId);
+
+    if (task && task.column !== newColumn) {
+      dispatch(
+        updateTasks({
+          ...task,
+          column: newColumn,
+        })
+      );
+    }
+  };
+
   return (
-    <div>
+     <DndContext onDragEnd={dragEnd}>
       {/* App Nav bar */}
         <NavBar />
         <Divider />
         {/* Tasks Container */}
         <div className={Styles.taskCont}>
-              {/* ToDo Tasks */}
+              <div>
+                {/* ToDo Tasks */}
               <div>
                 <Todo />
               </div>
@@ -23,7 +51,10 @@ const Layout = () => {
               <div>
                 <InProgress />
               </div>
-              {/* In Review Tasks */}
+              </div>
+              
+              <div>
+                {/* In Review Tasks */}
               <div>
                 <InReview />
               </div>
@@ -31,8 +62,9 @@ const Layout = () => {
               <div>
                 <Completed />
               </div>
+              </div>
         </div>
-    </div>
+    </DndContext>
   )
 }
 

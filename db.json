@@ -29,11 +29,11 @@
       "column": "todo"
     },
     {
-      "id": "5",
       "title": "User settings page",
       "description": "Profile editing, preferences, and account management.",
       "priority": "Medium",
-      "column": "todo"
+      "column": "inProgress",
+      "id": "5"
     },
     {
       "id": "6",
@@ -43,32 +43,32 @@
       "column": "inProgress"
     },
     {
-      "id": "11",
       "title": "File upload component",
       "description": "Drag and drop file upload with preview.",
       "priority": "Medium",
-      "column": "inProgress"
+      "column": "todo",
+      "id": "11"
     },
     {
-      "id": "8",
       "title": "Dark mode support",
       "description": "Add theme toggle and CSS variable switching.",
       "priority": "Medium",
-      "column": "inReview"
+      "column": "inReview",
+      "id": "8"
     },
     {
-      "id": "9",
       "title": "Dashboard layout",
       "description": "Build responsive sidebar and main content area.",
       "priority": "Medium",
-      "column": "inReview"
+      "column": "completed",
+      "id": "9"
     },
     {
-      "id": "16",
       "title": "Design system tokens",
       "description": "Set up color palette, typography, and spacing scales.",
       "priority": "High",
-      "column": "completed"
+      "column": "inReview",
+      "id": "16"
     }
   ]
 }

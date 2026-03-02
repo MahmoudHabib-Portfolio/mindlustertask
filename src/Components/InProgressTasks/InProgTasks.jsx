@@ -12,6 +12,7 @@ import Chip from '@mui/material/Chip';
 import { useState } from "react";
 import { remvTask, updateTasks } from "../../ReduxContainer/taskSlice";
 import { useDispatch } from "react-redux";
+import { useDraggable } from "@dnd-kit/core";
 
 /* taskTitle_Field */
 const TaskTitleField = styled(TextField)({
@@ -139,8 +140,18 @@ const id = Open ? 'simple-popover' : undefined;
 
 const dispatch = useDispatch();
 
+const { attributes, listeners, setNodeRef, transform } = useDraggable({
+  id: task.id,
+});
+
+const style = {
+  transform: transform
+    ? `translate(${transform.x}px, ${transform.y}px)`
+    : undefined,
+};
+
   return (
-    <div>
+    <div ref={setNodeRef} style={style} {...listeners} {...attributes}>
           <div className={Styles.taskCard}>
             <div>
               <div className={Styles.taskTitle}>

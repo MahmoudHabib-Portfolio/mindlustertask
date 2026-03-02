@@ -14,6 +14,7 @@ import { addTask } from '../../ReduxContainer/taskSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import {fetchTasks} from "../../ReduxContainer/taskSlice";
 import RevTasks from './RevTasks';
+import { useDroppable } from '@dnd-kit/core';
 
 /* taskTitle_Field */
 const TskTitle = styled(TextField)({
@@ -113,8 +114,13 @@ const InReview = () => {
     closeModal();
   }
 
+  // MUST match column name
+  const { setNodeRef } = useDroppable({
+    id: "inReview",
+  });
+
   return (
-    <div className={Styles.todoCont}>
+    <div ref={setNodeRef} className={Styles.todoCont}>
       {/* Task Head */}
       <div>
         {/* Task Title */}
